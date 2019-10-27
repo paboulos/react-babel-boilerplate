@@ -1,0 +1,39 @@
+{
+  "name": "react-babel-boilerplate",
+  "version": "1.0.0",
+  "description": "Babel Node server boilerplate for a single React executable file",
+  "main": "index.js",
+  "repository": "https://github.com/paboulos/react-babel-boilerplate.git",
+  "author": "pboulos@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "express": "^4.17.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "installConfig": {
+    "pnp": true
+  },
+  "scripts": {
+    "build": "yarn run build-server && yarn run build-client",
+    "build-server": "babel src/server --out-dir ./dist --source-maps",
+    "build-client": "babel src/client --copy-files --out-dir ./dist/public",
+    "start": "export NODE_ENV=development|| set NODE_ENV=development&& nodemon -w ./dist ./dist/index.js",
+    "test": "./node_modules/.bin/mocha --require @babel/register",
+    "debug": "yarn run clean && export NODE_ENV=production|| set NODE_ENV=production&& node --inspect-brk ./dist/index.js",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-regenerator": "^7.4.5",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.2.2",
+    "rimraf": "^3.0.0"
+  }
+}

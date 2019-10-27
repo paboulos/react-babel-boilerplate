@@ -4,4 +4,4 @@ node_modules/
 # project
 dist/
 yarn-error.log
-yarn.lock
+.vscode/
