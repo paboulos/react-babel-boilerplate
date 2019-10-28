@@ -20,19 +20,29 @@
     "build-server": "babel src/server --out-dir ./dist --source-maps",
     "build-client": "babel src/client --copy-files --out-dir ./dist/public",
     "start": "export NODE_ENV=development|| set NODE_ENV=development&& nodemon -w ./dist ./dist/index.js",
-    "test": "./node_modules/.bin/mocha --require @babel/register",
+    "test": "rimraf temp && flow-remove-types --pretty  src/ -d temp/ && mocha --require @babel/register",
     "debug": "yarn run clean && export NODE_ENV=production|| set NODE_ENV=production&& node --inspect-brk ./dist/index.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist && rimraf temp"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/plugin-transform-regenerator": "^7.4.5",
     "@babel/preset-env": "^7.6.3",
+    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.6.3",
     "@babel/register": "^7.6.2",
+    "babel-eslint": "^10.0.3",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "eslint": "^6.6.0",
+    "eslint-import-resolver-babel-module": "^5.1.0",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.0.0",
+    "eslint-plugin-react": "^7.16.0",
+    "flow-bin": "^0.110.1",
+    "flow-remove-types": "^2.110.1",
     "mocha": "^6.2.2",
     "rimraf": "^3.0.0"
   }

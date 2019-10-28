@@ -6,7 +6,7 @@
 module.exports = {
   diff: true,
   extension: ['js'],
-  spec: "src/**/*.test.js",
+  spec: "temp/**/*.test.js",
   opts: './test/mocha.opts',
   recursive: true,
   require: "./test/common.js",
