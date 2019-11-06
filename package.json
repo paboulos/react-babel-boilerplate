@@ -17,9 +17,9 @@
   },
   "scripts": {
     "build": "yarn run build-server && yarn run build-client",
-    "build-server": "babel src/server --out-dir ./dist --source-maps",
+    "build-server": "babel src/server --out-dir ./dist",
     "build-client": "babel src/client --copy-files --out-dir ./dist/public",
-    "start": "export NODE_ENV=development|| set NODE_ENV=development&& nodemon -w ./dist ./dist/index.js",
+    "start": "rimraf dist && export NODE_ENV=development|| set NODE_ENV=development&& nodemon -w ./src ./scripts/start.js -path ../dist/server/index.js",
     "test": "rimraf temp && flow-remove-types --pretty  src/ -d temp/ && mocha --require @babel/register",
     "debug": "yarn run clean && export NODE_ENV=production|| set NODE_ENV=production&& node --inspect-brk ./dist/index.js",
     "clean": "rimraf dist && rimraf temp"

@@ -2,7 +2,7 @@
 
 class App extends React.Component {
   render() {
-    return <div>React Boiler Plate</div>
+    return <div>React Boiler plate</div>
   }
 }
 
